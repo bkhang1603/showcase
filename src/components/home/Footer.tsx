@@ -2,33 +2,71 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+interface Star {
+    id: number;
+    width: number;
+    height: number;
+    left: string;
+    top: string;
+    opacity: number;
+    duration: number;
+    delay: number;
+}
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
+    // Using a static value for server rendering
+    const [currentYear, setCurrentYear] = useState(2025);
+
+    // Update the year on the client side only
+    useEffect(() => {
+        setCurrentYear(new Date().getFullYear());
+    }, []);
+
+    const [stars, setStars] = useState<Star[]>([]);
+
+    // Generate stable random values on client-side only
+    useEffect(() => {
+        const generateStars = () => {
+            return [...Array(100)].map((_, i) => ({
+                id: i,
+                width: Math.random() * 2 + 0.5,
+                height: Math.random() * 2 + 0.5,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.5 + 0.1,
+                duration: Math.random() * 5 + 3,
+                delay: Math.random() * 5,
+            }));
+        };
+
+        setStars(generateStars());
+    }, []);
 
     return (
         <footer className="bg-gray-950 text-white py-16 relative overflow-hidden">
             {/* Stars background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(100)].map((_, i) => (
+                {stars.map((star) => (
                     <motion.div
-                        key={i}
+                        key={star.id}
                         className="absolute rounded-full bg-white"
                         style={{
-                            width: Math.random() * 2 + 0.5,
-                            height: Math.random() * 2 + 0.5,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            opacity: Math.random() * 0.5 + 0.1,
+                            width: star.width,
+                            height: star.height,
+                            left: star.left,
+                            top: star.top,
+                            opacity: star.opacity,
                         }}
                         animate={{
                             opacity: [null, 0.1, 0.8, 0.1],
                         }}
                         transition={{
-                            duration: Math.random() * 5 + 3,
+                            duration: star.duration,
                             repeat: Infinity,
                             ease: "easeInOut",
-                            delay: Math.random() * 5,
+                            delay: star.delay,
                         }}
                     />
                 ))}

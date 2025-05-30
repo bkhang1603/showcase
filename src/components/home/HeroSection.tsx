@@ -1,96 +1,111 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+// Define particle type
+interface Particle {
+    id: number;
+    width: number;
+    height: number;
+    left: string;
+    top: string;
+    animY: number;
+    animX: number;
+    duration: number;
+    delay: number;
+    color: string; // Add color property for vibrant particles
+}
 
 export default function HeroSection() {
+    const [particles, setParticles] = useState<Particle[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false); // Generate stable random values on client-side only
+    useEffect(() => {
+        // Vibrant color palette for particles with higher opacity and glow effects
+        const colors = [
+            "bg-purple-500/90",
+            "bg-indigo-500/90",
+            "bg-blue-500/90",
+            "bg-cyan-500/90",
+            "bg-emerald-500/90",
+            "bg-pink-500/90",
+            "bg-rose-500/90",
+        ];
+        const generateParticles = () => {
+            return [...Array(40)].map((_, i) => ({
+                id: i,
+                width: Math.random() * 12 + 4, // Slightly larger particles
+                height: Math.random() * 12 + 4, // Slightly larger particles
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animY: Math.random() * -150 - 50, // More dramatic vertical movement
+                animX: (Math.random() - 0.5) * 80, // More dramatic horizontal movement
+                duration: Math.random() * 10 + 8, // Slightly faster animation
+                delay: Math.random() * 3 + 2, // Adjusted delay to prevent initial flicker
+                color: colors[Math.floor(Math.random() * colors.length)], // Random vibrant color
+            }));
+        };
+
+        // Set a small timeout to ensure DOM is ready before animation starts
+        const timer = setTimeout(() => {
+            setParticles(generateParticles());
+            setIsLoaded(true);
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Background image with overlay */}
+            {" "}
+            {/* Background with modern gradient */}
             <div className="absolute inset-0">
-                <Image
-                    src="/images/hero-bg.jpg"
-                    alt="Tech Background"
-                    fill
-                    priority
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-gray-900"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/60 to-indigo-900/80"></div>
+                <div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 1px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.2) 1px, transparent 1px)",
+                        backgroundSize: "60px 60px",
+                    }}
+                ></div>
             </div>
-
-            {/* Animated particles */}
-            <div className="absolute inset-0 overflow-hidden">
-                {[...Array(30)].map((_, i) => (
+            {/* Animated particles - now with more vibrant colors */}
+            <motion.div
+                className="absolute inset-0 overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isLoaded ? 1 : 0 }}
+                transition={{ duration: 1 }}
+            >
+                {particles.map((particle) => (
                     <motion.div
-                        key={i}
-                        className="absolute rounded-full bg-indigo-500/30"
+                        key={particle.id}
+                        className={`absolute rounded-full ${particle.color}`}
                         style={{
-                            width: Math.random() * 8 + 2,
-                            height: Math.random() * 8 + 2,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            width: particle.width,
+                            height: particle.height,
+                            left: particle.left,
+                            top: particle.top,
+                            filter: "blur(2px) brightness(1.3)", // Enhanced blur and brightness for better glow effect
+                            boxShadow: "0 0 8px 2px rgba(255, 255, 255, 0.3)", // Add glow effect
                         }}
+                        initial={{ opacity: 0, scale: 0.5 }}
                         animate={{
-                            y: [0, Math.random() * -100 - 50],
-                            x: [0, (Math.random() - 0.5) * 50],
-                            opacity: [0, 0.7, 0],
+                            y: [0, particle.animY],
+                            x: [0, particle.animX],
+                            opacity: [0, 0.9, 0], // Higher peak opacity
+                            scale: [0.8, 1.3, 0.5], // Enhanced scaling for more dynamic effect
                         }}
                         transition={{
-                            duration: Math.random() * 10 + 10,
+                            duration: particle.duration,
                             repeat: Infinity,
                             ease: "linear",
-                            delay: Math.random() * 5,
+                            delay: particle.delay,
                         }}
                     />
                 ))}
-            </div>
-
-            {/* Floating tech elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    className="absolute w-32 h-32 top-[15%] left-[10%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                >
-                    <Image
-                        src="/images/vr-element.png"
-                        alt="VR Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-
-                <motion.div
-                    className="absolute w-40 h-40 bottom-[20%] right-[15%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                >
-                    <Image
-                        src="/images/ar-element.png"
-                        alt="AR Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-
-                <motion.div
-                    className="absolute w-24 h-24 top-[40%] right-[10%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 1.1 }}
-                >
-                    <Image
-                        src="/images/iot-element.png"
-                        alt="IoT Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-            </div>
-
+            </motion.div>
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     className="max-w-3xl mx-auto text-center"
@@ -154,7 +169,6 @@ export default function HeroSection() {
                     </motion.div>
                 </motion.div>
             </div>
-
             {/* Bottom scroll indicator */}
             <motion.div
                 className="absolute bottom-8 left-1/2 transform -translate-x-1/2"

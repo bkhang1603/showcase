@@ -3,31 +3,62 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import images from "@/assets/images";
+
+interface Particle {
+    id: number;
+    width: number;
+    height: number;
+    left: string;
+    top: string;
+    duration: number;
+    delay: number;
+}
 
 export default function ApplicationSection() {
+    const [particles, setParticles] = useState<Particle[]>([]);
+
+    // Generate stable random values on client-side only
+    useEffect(() => {
+        const generateParticles = () => {
+            return [...Array(30)].map((_, i) => ({
+                id: i,
+                width: Math.random() * 4 + 1,
+                height: Math.random() * 4 + 1,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                duration: Math.random() * 5 + 5,
+                delay: Math.random() * 5,
+            }));
+        };
+
+        setParticles(generateParticles());
+    }, []);
+
     return (
         <section className="py-24 bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 relative overflow-hidden">
             {/* Background particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(30)].map((_, i) => (
+                {particles.map((particle) => (
                     <motion.div
-                        key={i}
+                        key={particle.id}
                         className="absolute rounded-full bg-white/5"
                         style={{
-                            width: Math.random() * 4 + 1,
-                            height: Math.random() * 4 + 1,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            width: particle.width,
+                            height: particle.height,
+                            left: particle.left,
+                            top: particle.top,
                         }}
                         animate={{
                             opacity: [0.1, 0.5, 0.1],
                             scale: [1, 1.2, 1],
                         }}
                         transition={{
-                            duration: Math.random() * 5 + 5,
+                            duration: particle.duration,
                             repeat: Infinity,
                             ease: "easeInOut",
-                            delay: Math.random() * 5,
+                            delay: particle.delay,
                         }}
                     />
                 ))}
@@ -142,12 +173,12 @@ export default function ApplicationSection() {
                         <div className="relative">
                             {/* Main image */}
                             <motion.div
-                                className="rounded-lg shadow-2xl overflow-hidden relative z-20"
+                                className="rounded-lg shadow-2xl overflow-hidden relative z-0"
                                 whileHover={{ scale: 1.03 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <Image
-                                    src="/images/3d-application.jpg"
+                                    src={images.threeDApplication}
                                     alt="3D Application Visualization"
                                     width={800}
                                     height={450}
@@ -164,7 +195,7 @@ export default function ApplicationSection() {
                                 transition={{ duration: 0.5, delay: 0.6 }}
                             >
                                 <Image
-                                    src="/images/vr-small.jpg"
+                                    src={images.vr}
                                     alt="VR Experience"
                                     fill
                                     className="object-cover"
@@ -180,7 +211,7 @@ export default function ApplicationSection() {
                                 transition={{ duration: 0.5, delay: 0.8 }}
                             >
                                 <Image
-                                    src="/images/ar-small.jpg"
+                                    src={images.ar}
                                     alt="AR Experience"
                                     fill
                                     className="object-cover"
