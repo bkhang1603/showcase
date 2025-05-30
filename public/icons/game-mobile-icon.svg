@@ -1,0 +1,27 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="16" fill="#EEF2FF"/>
+  <rect x="25" y="10" width="30" height="60" rx="5" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
+  <rect x="28" y="15" width="24" height="45" rx="2" fill="#312E81"/>
+  
+  <!-- Game elements -->
+  <rect x="32" y="20" width="8" height="8" rx="1" fill="#A78BFA"/>
+  <rect x="42" y="20" width="6" height="8" rx="1" fill="#6366F1"/>
+  <circle cx="36" cy="35" r="5" fill="#6366F1"/>
+  <rect x="32" y="45" width="16" height="5" rx="1" fill="#A78BFA"/>
+  
+  <!-- Phone buttons -->
+  <circle cx="40" cy="65" r="3" fill="white"/>
+  <rect x="38" y="15" width="4" height="1" rx="0.5" fill="white"/>
+  
+  <!-- Game controller -->
+  <rect x="15" y="55" width="10" height="10" rx="5" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <path d="M20 57.5V62.5" stroke="white" stroke-width="1.5"/>
+  <path d="M17.5 60H22.5" stroke="white" stroke-width="1.5"/>
+  
+  <rect x="55" y="55" width="10" height="10" rx="5" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <circle cx="60" cy="60" r="2" fill="white"/>
+  
+  <!-- Connection -->
+  <path d="M25 60H15" stroke="#312E81" stroke-width="1.5"/>
+  <path d="M55 60H65" stroke="#312E81" stroke-width="1.5"/>
+</svg> 

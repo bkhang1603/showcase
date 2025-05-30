@@ -1,0 +1,75 @@
+<svg width="800" height="450" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="800" height="450" rx="8" fill="url(#paint0_linear)"/>
+  
+  <!-- 3D Grid -->
+  <g opacity="0.3">
+    <path d="M100 100L100 350" stroke="white" stroke-width="1"/>
+    <path d="M200 100L200 350" stroke="white" stroke-width="1"/>
+    <path d="M300 100L300 350" stroke="white" stroke-width="1"/>
+    <path d="M400 100L400 350" stroke="white" stroke-width="1"/>
+    <path d="M500 100L500 350" stroke="white" stroke-width="1"/>
+    <path d="M600 100L600 350" stroke="white" stroke-width="1"/>
+    <path d="M700 100L700 350" stroke="white" stroke-width="1"/>
+    
+    <path d="M100 100L700 100" stroke="white" stroke-width="1"/>
+    <path d="M100 150L700 150" stroke="white" stroke-width="1"/>
+    <path d="M100 200L700 200" stroke="white" stroke-width="1"/>
+    <path d="M100 250L700 250" stroke="white" stroke-width="1"/>
+    <path d="M100 300L700 300" stroke="white" stroke-width="1"/>
+    <path d="M100 350L700 350" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- 3D Objects -->
+  <g filter="url(#filter0_d)">
+    <!-- Cube -->
+    <path d="M200 200L300 150L400 200L300 250L200 200Z" fill="#4F46E5" stroke="white" stroke-width="2"/>
+    <path d="M200 200L300 250L300 350L200 300L200 200Z" fill="#3730A3" stroke="white" stroke-width="2"/>
+    <path d="M300 250L400 200L400 300L300 350L300 250Z" fill="#312E81" stroke="white" stroke-width="2"/>
+    
+    <!-- Sphere -->
+    <circle cx="550" cy="225" r="75" fill="url(#paint1_radial)" stroke="white" stroke-width="2"/>
+    <ellipse cx="550" cy="225" rx="75" ry="30" fill="transparent" stroke="white" stroke-opacity="0.5" stroke-width="1"/>
+    <ellipse cx="550" cy="225" rx="50" ry="20" fill="transparent" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  </g>
+  
+  <!-- VR Goggles Icon -->
+  <g transform="translate(650, 80) scale(0.8)">
+    <rect x="10" y="10" width="80" height="40" rx="10" fill="#6366F1" stroke="white" stroke-width="2"/>
+    <path d="M30 30A5 5 0 0 1 30 40A5 5 0 0 1 30 30" fill="white"/>
+    <path d="M70 30A5 5 0 0 1 70 40A5 5 0 0 1 70 30" fill="white"/>
+    <path d="M10 30H0" stroke="white" stroke-width="2"/>
+    <path d="M100 30H90" stroke="white" stroke-width="2"/>
+  </g>
+  
+  <!-- AR Phone Icon -->
+  <g transform="translate(80, 80) scale(0.8)">
+    <rect x="10" y="10" width="40" height="70" rx="5" fill="#6366F1" stroke="white" stroke-width="2"/>
+    <circle cx="30" cy="25" r="5" fill="white"/>
+    <path d="M15 40H45" stroke="white" stroke-width="1"/>
+    <path d="M30 55L45 70" stroke="white" stroke-width="2"/>
+    <path d="M30 55L15 70" stroke="white" stroke-width="2"/>
+    <path d="M30 55L30 70" stroke="white" stroke-width="2"/>
+  </g>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(550 225) rotate(90) scale(75)">
+      <stop stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </radialGradient>
+    <filter id="filter0_d" x="190" y="140" width="445" height="220" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation="5"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+</svg> 

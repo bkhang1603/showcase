@@ -1,0 +1,25 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="16" fill="#EEF2FF"/>
+  <circle cx="40" cy="40" r="20" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
+  <circle cx="40" cy="40" r="5" fill="white"/>
+  
+  <!-- Connection lines -->
+  <path d="M40 20L40 10" stroke="#312E81" stroke-width="2"/>
+  <path d="M40 70L40 60" stroke="#312E81" stroke-width="2"/>
+  <path d="M20 40L10 40" stroke="#312E81" stroke-width="2"/>
+  <path d="M70 40L60 40" stroke="#312E81" stroke-width="2"/>
+  <path d="M26.5 26.5L19.5 19.5" stroke="#312E81" stroke-width="2"/>
+  <path d="M60.5 60.5L53.5 53.5" stroke="#312E81" stroke-width="2"/>
+  <path d="M26.5 53.5L19.5 60.5" stroke="#312E81" stroke-width="2"/>
+  <path d="M60.5 19.5L53.5 26.5" stroke="#312E81" stroke-width="2"/>
+  
+  <!-- Connected devices -->
+  <rect x="5" y="5" width="10" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="65" y="5" width="10" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="5" y="65" width="10" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="65" y="65" width="10" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="35" y="5" width="10" height="5" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="35" y="70" width="10" height="5" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="5" y="35" width="5" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <rect x="70" y="35" width="5" height="10" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+</svg> 

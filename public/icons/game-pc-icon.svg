@@ -1,0 +1,26 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="16" fill="#EEF2FF"/>
+  <rect x="10" y="10" width="60" height="40" rx="5" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
+  <rect x="15" y="15" width="50" height="30" rx="2" fill="#312E81"/>
+  
+  <!-- Game elements -->
+  <rect x="20" y="20" width="10" height="10" rx="2" fill="#A78BFA"/>
+  <rect x="35" y="20" width="10" height="10" rx="2" fill="#4F46E5"/>
+  <rect x="50" y="20" width="10" height="10" rx="2" fill="#6366F1"/>
+  <rect x="20" y="35" width="10" height="5" rx="1" fill="#6366F1"/>
+  <rect x="35" y="35" width="25" height="5" rx="1" fill="#A78BFA"/>
+  
+  <!-- Monitor stand -->
+  <path d="M40 50L40 60" stroke="#312E81" stroke-width="3"/>
+  <rect x="25" y="60" width="30" height="5" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
+  
+  <!-- Keyboard -->
+  <rect x="20" y="70" width="40" height="5" rx="2" fill="#4F46E5" stroke="#312E81" stroke-width="1.5"/>
+  <path d="M25 70L25 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M30 70L30 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M35 70L35 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M40 70L40 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M45 70L45 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M50 70L50 75" stroke="#312E81" stroke-width="1"/>
+  <path d="M55 70L55 75" stroke="#312E81" stroke-width="1"/>
+</svg> 

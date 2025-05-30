@@ -1,0 +1,81 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="url(#paint0_linear)"/>
+  
+  <!-- Abstract tech elements -->
+  <g opacity="0.1">
+    <!-- Circuits -->
+    <path d="M0 400H1920" stroke="white" stroke-width="2"/>
+    <path d="M0 600H1920" stroke="white" stroke-width="2"/>
+    <path d="M0 800H1920" stroke="white" stroke-width="2"/>
+    <path d="M400 0V1080" stroke="white" stroke-width="2"/>
+    <path d="M800 0V1080" stroke="white" stroke-width="2"/>
+    <path d="M1200 0V1080" stroke="white" stroke-width="2"/>
+    <path d="M1600 0V1080" stroke="white" stroke-width="2"/>
+    
+    <!-- Circuit nodes -->
+    <circle cx="400" cy="400" r="10" fill="white"/>
+    <circle cx="800" cy="400" r="10" fill="white"/>
+    <circle cx="1200" cy="400" r="10" fill="white"/>
+    <circle cx="1600" cy="400" r="10" fill="white"/>
+    <circle cx="400" cy="600" r="10" fill="white"/>
+    <circle cx="800" cy="600" r="10" fill="white"/>
+    <circle cx="1200" cy="600" r="10" fill="white"/>
+    <circle cx="1600" cy="600" r="10" fill="white"/>
+    <circle cx="400" cy="800" r="10" fill="white"/>
+    <circle cx="800" cy="800" r="10" fill="white"/>
+    <circle cx="1200" cy="800" r="10" fill="white"/>
+    <circle cx="1600" cy="800" r="10" fill="white"/>
+  </g>
+  
+  <!-- Particles -->
+  <g opacity="0.3">
+    <circle cx="200" cy="300" r="3" fill="white"/>
+    <circle cx="500" cy="200" r="2" fill="white"/>
+    <circle cx="700" cy="500" r="4" fill="white"/>
+    <circle cx="900" cy="300" r="2" fill="white"/>
+    <circle cx="1100" cy="700" r="3" fill="white"/>
+    <circle cx="1300" cy="400" r="2" fill="white"/>
+    <circle cx="1500" cy="600" r="3" fill="white"/>
+    <circle cx="1700" cy="200" r="2" fill="white"/>
+    <circle cx="300" cy="900" r="3" fill="white"/>
+    <circle cx="600" cy="800" r="2" fill="white"/>
+    <circle cx="1000" cy="900" r="4" fill="white"/>
+    <circle cx="1400" cy="800" r="2" fill="white"/>
+    <circle cx="1800" cy="900" r="3" fill="white"/>
+  </g>
+  
+  <!-- Abstract 3D shapes -->
+  <g opacity="0.15">
+    <!-- Cube -->
+    <path d="M300 500L400 450L500 500L400 550L300 500Z" stroke="white" stroke-width="3"/>
+    <path d="M300 500L400 550L400 650L300 600L300 500Z" stroke="white" stroke-width="3"/>
+    <path d="M400 550L500 500L500 600L400 650L400 550Z" stroke="white" stroke-width="3"/>
+    
+    <!-- Sphere wireframe -->
+    <circle cx="1600" cy="550" r="100" stroke="white" stroke-width="3"/>
+    <ellipse cx="1600" cy="550" rx="100" ry="40" stroke="white" stroke-width="2"/>
+    <ellipse cx="1600" cy="550" rx="40" ry="100" stroke="white" stroke-width="2"/>
+    
+    <!-- Pyramid -->
+    <path d="M900 450L1000 550L800 550L900 450Z" stroke="white" stroke-width="3"/>
+    <path d="M900 450L800 550L900 650" stroke="white" stroke-width="3"/>
+    <path d="M900 450L900 650L1000 550" stroke="white" stroke-width="3"/>
+    <path d="M800 550L900 650L1000 550" stroke="white" stroke-width="3"/>
+  </g>
+  
+  <!-- Gradient overlay -->
+  <rect width="1920" height="1080" fill="url(#paint1_radial)" fill-opacity="0.5"/>
+  
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E40AF"/>
+      <stop offset="0.5" stop-color="#4338CA"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 540) rotate(90) scale(540 960)">
+      <stop stop-color="#4F46E5" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg> 

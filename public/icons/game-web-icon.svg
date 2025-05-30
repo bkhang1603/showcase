@@ -1,0 +1,29 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="80" rx="16" fill="#EEF2FF"/>
+  <rect x="10" y="15" width="60" height="50" rx="5" fill="#4F46E5" stroke="#312E81" stroke-width="2"/>
+  
+  <!-- Browser bar -->
+  <rect x="10" y="15" width="60" height="10" rx="5" fill="#312E81"/>
+  <circle cx="15" cy="20" r="2" fill="#EF4444"/>
+  <circle cx="22" cy="20" r="2" fill="#F59E0B"/>
+  <circle cx="29" cy="20" r="2" fill="#10B981"/>
+  
+  <!-- URL bar -->
+  <rect x="36" y="17" width="30" height="6" rx="3" fill="#1E293B"/>
+  <path d="M38 20H64" stroke="#6366F1" stroke-width="1"/>
+  
+  <!-- Game screen -->
+  <rect x="15" y="30" width="50" height="30" rx="2" fill="#312E81"/>
+  
+  <!-- Game elements -->
+  <rect x="20" y="35" width="10" height="10" rx="2" fill="#A78BFA"/>
+  <rect x="35" y="35" width="10" height="10" rx="2" fill="#6366F1"/>
+  <rect x="50" y="35" width="10" height="10" rx="2" fill="#4F46E5"/>
+  <rect x="20" y="50" width="10" height="5" rx="1" fill="#6366F1"/>
+  <rect x="35" y="50" width="25" height="5" rx="1" fill="#A78BFA"/>
+  
+  <!-- Web icons -->
+  <path d="M40 65V70" stroke="#312E81" stroke-width="2"/>
+  <path d="M35 70H45" stroke="#312E81" stroke-width="2"/>
+  <circle cx="40" cy="75" r="2" fill="#312E81"/>
+</svg> 
