@@ -3,65 +3,67 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import images from "@/assets/images";
+import icons from "@/assets/icons";
 
 const services = [
     {
         title: "AR Applications",
         description:
             "Augmented reality solutions for business and entertainment",
-        image: "/images/services/ar-application.jpg",
-        icon: "/icons/ar-icon.svg",
+        image: images.ar,
+        icon: icons.ar,
         href: "/programs/ar",
     },
     {
         title: "VR Applications",
         description:
             "Immersive virtual reality experiences and training simulations",
-        image: "/images/services/vr-application.jpg",
-        icon: "/icons/vr-icon.svg",
+        image: images.vr,
+        icon: icons.vr,
         href: "/programs/vr",
     },
     {
         title: "Simulation",
         description: "High-fidelity simulations for training and visualization",
-        image: "/images/services/simulation.jpg",
-        icon: "/icons/simulation-icon.svg",
+        image: images.simulation,
+        icon: icons.vr,
         href: "/programs/simulation",
     },
     {
         title: "IOT Systems",
         description: "Connected device ecosystems and smart solutions",
-        image: "/images/services/iot-systems.jpg",
-        icon: "/icons/iot-icon.svg",
+        image: images.iot,
+        icon: icons.iot,
         href: "/programs/iot",
     },
     {
         title: "PC Games",
         description: "Cutting-edge gaming experiences for desktop platforms",
-        image: "/images/services/pc-games.jpg",
-        icon: "/icons/game-pc-icon.svg",
+        image: images.pc,
+        icon: icons.vr,
         href: "/programs/pc-games",
     },
     {
         title: "Mobile Games",
         description: "Engaging mobile gaming applications for iOS and Android",
-        image: "/images/services/mobile-games.jpg",
-        icon: "/icons/game-mobile-icon.svg",
+        image: images.mobile,
+        icon: icons.vr,
         href: "/programs/mobile-games",
     },
     {
         title: "Web Games",
         description:
             "Browser-based gaming solutions with cross-platform support",
-        image: "/images/services/web-games.jpg",
-        icon: "/icons/game-web-icon.svg",
+        image: images.web,
+        icon: icons.vr,
         href: "/programs/web-games",
     },
     {
         title: "Metaverse",
         description: "Virtual world environments and metaverse experiences",
-        image: "/images/services/metaverse.jpg",
-        icon: "/icons/metaverse-icon.svg",
+        image: images.metaverse,
+        icon: icons.ar,
         href: "/programs/metaverse",
     },
 ];
@@ -84,11 +86,6 @@ export default function ServicesSection() {
 
     return (
         <section className="py-20 bg-gray-900 relative overflow-hidden">
-            {/* Background grid pattern */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center"></div>
-            </div>
-
             {/* Glowing orbs */}
             <motion.div
                 className="absolute top-20 left-20 w-40 h-40 rounded-full bg-indigo-600/10 blur-3xl"
@@ -176,24 +173,28 @@ export default function ServicesSection() {
                         <motion.div
                             key={index}
                             variants={item}
-                            whileHover={{ scale: 1.03, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
                             className="group"
+                            transition={{ duration: 0.5 }}
                         >
                             <Link href={service.href} className="block">
-                                <div className="bg-gray-800 rounded-xl overflow-hidden h-full shadow-lg hover:shadow-indigo-500/20 border border-gray-700 hover:border-indigo-500 transition-all duration-300">
-                                    <div className="relative h-48 w-full overflow-hidden">
-                                        {/* Service image with fallback */}
+                                {" "}
+                                <div className="bg-gray-800 rounded-xl overflow-hidden h-full shadow-lg hover:shadow-indigo-500/20 border border-gray-700 hover:border-indigo-500 transition-all duration-700">
+                                    <div className="relative h-48 w-full overflow-hidden group-hover:after:opacity-10 after:absolute after:inset-0 after:bg-indigo-500/0 after:opacity-0 after:transition-opacity after:duration-700 after:ease-out">
+                                        {/* Service image with fallback */}{" "}
                                         <Image
                                             src={service.image}
                                             alt={service.title}
                                             fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                            className="object-cover transition-all duration-700 ease-out group-hover:filter group-hover:brightness-105"
                                             onError={(e) => {
-                                                // Fallback to icon if image fails to load
+                                                // Fallback if image fails to load
                                                 const target =
                                                     e.target as HTMLImageElement;
-                                                target.src = service.icon;
+                                                target.src =
+                                                    typeof service.icon ===
+                                                    "string"
+                                                        ? service.icon
+                                                        : service.icon.src;
                                                 target.classList.remove(
                                                     "object-cover"
                                                 );
@@ -203,19 +204,9 @@ export default function ServicesSection() {
                                                 );
                                             }}
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
-
-                                        {/* Service icon overlay */}
-                                        <div className="absolute top-4 right-4 bg-gray-900/50 backdrop-blur-sm p-2 rounded-full">
-                                            <Image
-                                                src={service.icon}
-                                                alt={`${service.title} icon`}
-                                                width={24}
-                                                height={24}
-                                                className="opacity-80 group-hover:opacity-100 transition-opacity"
-                                            />
-                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60 group-hover:opacity-55 transition-all duration-700 ease-out"></div>
                                     </div>
+
                                     <div className="p-5">
                                         <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
                                             {service.title}
@@ -226,10 +217,10 @@ export default function ServicesSection() {
                                         <div className="mt-3 flex items-center">
                                             <span className="text-indigo-400 text-sm group-hover:text-indigo-300 transition-colors duration-300">
                                                 Explore
-                                            </span>
+                                            </span>{" "}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4 ml-1 text-indigo-400 group-hover:text-indigo-300 transition-colors duration-300 group-hover:translate-x-1 transition-transform"
+                                                className="h-4 w-4 ml-1 text-indigo-400 group-hover:text-indigo-300 transition-colors duration-700 ease-out"
                                                 viewBox="0 0 20 20"
                                                 fill="currentColor"
                                             >

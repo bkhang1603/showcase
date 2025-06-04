@@ -1,96 +1,113 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import Scene3D from "../ui/Scene3D";
+import { useState, useEffect } from "react";
+import ClientOnly from "@/components/ui/ClientOnly";
+import SimpleScene3D from "@/components/ui/SimpleScene3D";
+
+interface Particle {
+    id: number;
+    width: number;
+    height: number;
+    left: string;
+    top: string;
+    animY: number;
+    animX: number;
+    duration: number;
+    delay: number;
+    color: string;
+}
 
 export default function HeroSection() {
+    const [particles, setParticles] = useState<Particle[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        // Cyan/Tokyo themed color palette for particles
+        const colors = [
+            "bg-cyan-500/90",
+            "bg-blue-500/90",
+            "bg-indigo-500/90",
+            "bg-teal-500/90",
+            "bg-sky-500/90",
+            "bg-purple-500/90",
+        ];
+
+        const generateParticles = () => {
+            return [...Array(30)].map((_, i) => ({
+                id: i,
+                width: Math.random() * 8 + 3,
+                height: Math.random() * 8 + 3,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animY: Math.random() * -120 - 40,
+                animX: (Math.random() - 0.5) * 60,
+                duration: Math.random() * 12 + 10,
+                delay: Math.random() * 3 + 1,
+                color: colors[Math.floor(Math.random() * colors.length)],
+            }));
+        };
+
+        const timer = setTimeout(() => {
+            setParticles(generateParticles());
+            setIsLoaded(true);
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Background image with overlay */}
+            {/* Background with Tokyo-inspired gradient */}
             <div className="absolute inset-0">
-                <Image
-                    src="/images/hero-bg.jpg"
-                    alt="Tech Background"
-                    fill
-                    priority
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-gray-900"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-cyan-900/40 to-blue-900/60"></div>
+                <div
+                    className="absolute inset-0 opacity-20"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.3) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.3) 1px, transparent 1px)",
+                        backgroundSize: "80px 80px",
+                    }}
+                ></div>
             </div>
 
-            {/* Animated particles */}
-            <div className="absolute inset-0 overflow-hidden">
-                {[...Array(30)].map((_, i) => (
+            {/* Animated particles with Tokyo theme */}
+            <motion.div
+                className="absolute inset-0 overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isLoaded ? 1 : 0 }}
+                transition={{ duration: 1 }}
+            >
+                {particles.map((particle) => (
                     <motion.div
-                        key={i}
-                        className="absolute rounded-full bg-indigo-500/30"
+                        key={particle.id}
+                        className={`absolute rounded-full ${particle.color}`}
                         style={{
-                            width: Math.random() * 8 + 2,
-                            height: Math.random() * 8 + 2,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            width: particle.width,
+                            height: particle.height,
+                            left: particle.left,
+                            top: particle.top,
+                            filter: "blur(1px) brightness(1.2)",
+                            boxShadow: "0 0 6px 1px rgba(6, 182, 212, 0.4)",
                         }}
+                        initial={{ opacity: 0, scale: 0.5 }}
                         animate={{
-                            y: [0, Math.random() * -100 - 50],
-                            x: [0, (Math.random() - 0.5) * 50],
-                            opacity: [0, 0.7, 0],
+                            y: [0, particle.animY],
+                            x: [0, particle.animX],
+                            opacity: [0, 0.8, 0],
+                            scale: [0.8, 1.2, 0.5],
                         }}
                         transition={{
-                            duration: Math.random() * 10 + 10,
+                            duration: particle.duration,
                             repeat: Infinity,
                             ease: "linear",
-                            delay: Math.random() * 5,
+                            delay: particle.delay,
                         }}
                     />
                 ))}
-            </div>
+            </motion.div>
 
-            {/* Floating tech elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    className="absolute w-32 h-32 top-[15%] left-[10%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                >
-                    <Image
-                        src="/images/vr-element.png"
-                        alt="VR Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-
-                <motion.div
-                    className="absolute w-40 h-40 bottom-[20%] right-[15%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                >
-                    <Image
-                        src="/images/ar-element.png"
-                        alt="AR Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-
-                <motion.div
-                    className="absolute w-24 h-24 top-[40%] right-[10%]"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 0.7, y: 0 }}
-                    transition={{ duration: 1, delay: 1.1 }}
-                >
-                    <Image
-                        src="/images/iot-element.png"
-                        alt="IoT Element"
-                        fill
-                        className="object-contain"
-                    />
-                </motion.div>
-            </div>            <div className="container mx-auto px-4 md:px-6 relative z-10 h-full flex items-center">
+            <div className="container mx-auto px-4 md:px-6 relative z-10 h-full flex items-center">
                 <div className="grid lg:grid-cols-2 gap-8 items-center w-full">
                     {/* Left side - Text content */}
                     <motion.div
@@ -105,7 +122,7 @@ export default function HeroSection() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
                                 Innovative
                             </span>{" "}
                             Technology Solutions
@@ -117,10 +134,10 @@ export default function HeroSection() {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
                         >
-                            T2V is dedicated to providing the best gaming, AR, VR,
-                            simulation, applications, and IOT experiences for our
-                            customers. We are constantly pushing the envelope when
-                            it comes to innovation and technology.
+                            T2V is dedicated to providing the best gaming, AR,
+                            VR, simulation, applications, and IOT experiences
+                            for our customers. We are constantly pushing the
+                            envelope when it comes to innovation and technology.
                         </motion.p>
 
                         <motion.div
@@ -135,7 +152,7 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white px-8 py-3 rounded-full font-medium transition block"
+                                    className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-3 rounded-full font-medium transition block"
                                 >
                                     Get Started
                                 </Link>
@@ -147,7 +164,7 @@ export default function HeroSection() {
                             >
                                 <Link
                                     href="/about"
-                                    className="bg-transparent border border-indigo-400 text-indigo-300 px-8 py-3 rounded-full font-medium hover:bg-indigo-900/30 transition block"
+                                    className="bg-transparent border border-cyan-400 text-cyan-300 px-8 py-3 rounded-full font-medium hover:bg-cyan-900/30 transition block"
                                 >
                                     Learn More
                                 </Link>
@@ -155,29 +172,30 @@ export default function HeroSection() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right side - 3D Scene */}
+                    {/* Right side - Tokyo 3D Scene */}
                     <motion.div
                         className="lg:order-2 h-[400px] lg:h-[600px] relative"
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-900/20 to-purple-900/20 backdrop-blur-sm border border-indigo-500/20">
-                            <Scene3D className="w-full h-full" />
-                            
-                            {/* Optional overlay with tech info */}
-                            <div className="absolute bottom-4 left-4 right-4">
-                                <div className="bg-black/40 backdrop-blur-sm rounded-lg p-4 border border-indigo-500/30">
-                                    <motion.p 
-                                        className="text-indigo-300 text-sm"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: 1.2 }}
-                                    >
-                                        Interactive 3D Technology Preview
-                                    </motion.p>
-                                </div>
-                            </div>                        </div>
+                        {" "}
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                            <ClientOnly
+                                fallback={
+                                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cyan-900/20 to-blue-900/30 rounded-2xl">
+                                        <div className="text-center">
+                                            <div className="w-16 h-16 border-4 border-cyan-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                                            <div className="text-cyan-300 text-sm">
+                                                Loading 3D Scene...
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            >
+                                <SimpleScene3D className="w-full h-full" />
+                            </ClientOnly>
+                        </div>
                     </motion.div>
                 </div>
             </div>
@@ -202,7 +220,7 @@ export default function HeroSection() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-indigo-300"
+                    className="text-cyan-300"
                 >
                     <path d="M12 5v14"></path>
                     <path d="m19 12-7 7-7-7"></path>

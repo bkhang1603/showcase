@@ -1,5 +1,6 @@
 "use client";
 
+import icons from "@/assets/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -12,7 +13,7 @@ const processes = [
             "Analyzing requirements",
             "Document & interface design",
         ],
-        image: "/images/process-1.jpg",
+        image: icons.request,
     },
     {
         step: "02",
@@ -22,7 +23,7 @@ const processes = [
             "Creating a plan",
             "Allocating tasks",
         ],
-        image: "/images/process-2.jpg",
+        image: icons.deployment,
     },
     {
         step: "03",
@@ -33,7 +34,7 @@ const processes = [
             "Performing unit tests",
             "Code review by Project Leader",
         ],
-        image: "/images/process-3.jpg",
+        image: icons.product,
     },
     {
         step: "04",
@@ -44,7 +45,7 @@ const processes = [
             "User acceptance testing",
             "Bug fixing and finalization",
         ],
-        image: "/images/process-4.jpg",
+        image: icons.testing,
     },
 ];
 
@@ -122,12 +123,15 @@ export default function ProcessSection() {
                             >
                                 {/* Image */}
                                 <div className="relative h-40 overflow-hidden">
-                                    <Image
-                                        src={process.image}
-                                        alt={process.title}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
+                                    <div className="flex items-center justify-center w-full h-full">
+                                        <Image
+                                            src={process.image}
+                                            alt={process.title}
+                                            width={120}
+                                            height={120}
+                                            className="object-cover transition-transform duration-500 group-hover:scale-110 filter invert"
+                                        />
+                                    </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
                                     <motion.div
                                         className="absolute bottom-4 left-6 text-5xl font-bold text-indigo-600/50 group-hover:text-indigo-500/60 transition-colors"
@@ -227,7 +231,7 @@ export default function ProcessSection() {
                 >
                     <div className="relative h-[200px] md:h-[300px] w-full rounded-xl overflow-hidden">
                         <Image
-                            src="/images/process-flow.jpg"
+                            src="/grid.svg"
                             alt="Our Process Flow"
                             fill
                             className="object-cover"

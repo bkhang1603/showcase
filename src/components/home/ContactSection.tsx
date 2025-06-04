@@ -1,8 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
+interface Star {
+    id: number;
+    width: number;
+    height: number;
+    left: string;
+    top: string;
+    duration: number;
+    delay: number;
+}
 
 export default function ContactSection() {
     const [formState, setFormState] = useState({
@@ -12,6 +22,24 @@ export default function ContactSection() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [stars, setStars] = useState<Star[]>([]);
+
+    // Generate stable random values on client-side only
+    useEffect(() => {
+        const generateStars = () => {
+            return [...Array(50)].map((_, i) => ({
+                id: i,
+                width: Math.random() * 2 + 1,
+                height: Math.random() * 2 + 1,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                duration: Math.random() * 3 + 2,
+                delay: Math.random() * 5,
+            }));
+        };
+
+        setStars(generateStars());
+    }, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,25 +75,25 @@ export default function ContactSection() {
 
             {/* Stars */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(50)].map((_, i) => (
+                {stars.map((star) => (
                     <motion.div
-                        key={i}
+                        key={star.id}
                         className="absolute rounded-full bg-white"
                         style={{
-                            width: Math.random() * 2 + 1,
-                            height: Math.random() * 2 + 1,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            width: star.width,
+                            height: star.height,
+                            left: star.left,
+                            top: star.top,
                         }}
                         animate={{
                             opacity: [0.1, 0.8, 0.1],
                             scale: [1, 1.2, 1],
                         }}
                         transition={{
-                            duration: Math.random() * 3 + 2,
+                            duration: star.duration,
                             repeat: Infinity,
                             ease: "easeInOut",
-                            delay: Math.random() * 5,
+                            delay: star.delay,
                         }}
                     />
                 ))}
