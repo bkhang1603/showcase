@@ -1,253 +1,196 @@
-<div align="center">
+# T2V Technology Showcase Website
 
-# 🌆 T2V Technology Showcase Website
+A modern, interactive showcase website for T2V's technology solutions, featuring 3D visualizations, animations, and comprehensive service presentations.
 
-### _Modern corporate website with stunning 3D elements and Tokyo-inspired design_
+## 🚀 Features
 
-![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)
-![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+### ✨ Interactive 3D Character Showcase
 
-</div>
+-   **3D Character Display**: Interactive characters representing Gaming, AR/VR, and IoT solutions
+-   **Real-time Animations**: Floating characters with dynamic lighting and particle effects
+-   **User Interaction**: OrbitControls for camera manipulation (drag to rotate, scroll to zoom)
+-   **Loading States**: Beautiful animated loading fallbacks
+-   **Tokyo-inspired Design**: Cyberpunk aesthetic with gradient backgrounds
 
-<div align="center">
-  <img src="public/hero-bg.svg" alt="T2V Technology Hero" width="800px" />
-</div>
+### 🎮 Technology Solutions
 
-<br>
+-   **Gaming**: PC, Mobile, and Web gaming solutions
+-   **AR/VR**: Immersive metaverse and spatial computing experiences
+-   **IoT**: Smart connectivity and automation systems
+-   **Simulation**: Advanced simulation and digital twin technologies
 
-## 📋 Project Overview
+### 🎨 Modern UI/UX
 
-**T2V Technology Showcase** is a cutting-edge corporate website built with the latest web technologies. It features Tokyo-inspired visual elements, interactive 3D models, and fluid animations that create an immersive user experience.
+-   **Responsive Design**: Mobile-first approach with seamless desktop scaling
+-   **Framer Motion**: Smooth page transitions and scroll animations
+-   **Tailwind CSS**: Modern styling with custom gradients
+-   **TypeScript**: Type-safe development experience
 
-> "We are dedicated to providing the best gaming, AR, VR, simulation, applications, and IoT experiences for our customers. We are constantly pushing the envelope when it comes to innovation and technology."
+## 🛠️ Tech Stack
 
-### 🚀 Key Features
+-   **Framework**: Next.js 15.3.2 with App Router
+-   **3D Graphics**: Three.js with React Three Fiber
+-   **Animations**: Framer Motion
+-   **Styling**: Tailwind CSS
+-   **Language**: TypeScript
+-   **Deployment**: Vercel (recommended)
 
--   ✨ **Interactive 3D Model** - Tokyo city model with realistic animations
--   🌟 **Particle System** - 30 animated particles with Tokyo-inspired colors
--   📱 **Responsive Design** - Optimized for mobile, tablet, and desktop
--   🎭 **Smooth Animations** - Elegant page transitions and micro-interactions
--   🔄 **Client-side Rendering** - For seamless 3D components with fallback states
+## 📦 Installation
 
-<div align="center">
-  <img src="public/3d-app-preview.svg" alt="App Preview" width="600px" />
-</div>
+```bash
+# Clone the repository
+git clone [repository-url]
+cd showcase
 
-## 🛠️ Technology Stack
+# Install dependencies
+npm install
 
-| Category         | Technologies                      |
-| ---------------- | --------------------------------- |
-| **Framework**    | Next.js 15+                       |
-| **Languages**    | TypeScript, JavaScript            |
-| **3D Rendering** | Three.js, React Three Fiber, Drei |
-| **Styling**      | TailwindCSS                       |
-| **Animations**   | Framer Motion                     |
-| **Deployment**   | Vercel                            |
-
-## 📑 Pages & Components
-
-### 1. 🏠 Homepage
-
--   **Hero Section** - Striking 3D Tokyo model with animated particles
--   **Services Section** - Showcase of T2V technology offerings
--   **Application Section** - Interactive service cards
--   **Process Section** - Visual development workflow
--   **Contact Section** - Streamlined contact form
-
-### 2. 🏢 About Page
-
--   Company story and mission
--   Team profiles with interactive elements
--   Vision and technology expertise
-
-### 3. 💼 Services Pages
-
--   **Gaming** - PC, Mobile, Web gaming solutions
--   **AR/VR/Metaverse** - Immersive experience development
--   **IoT Solutions** - Smart device integration
--   **Simulation** - Advanced simulation technology
-
-### 4. 📞 Contact Page
-
--   Interactive contact form
--   Office locations with map integration
--   Support information
-
-<div align="center">
-  <img src="public/globe.svg" alt="T2V Global Reach" width="400px" />
-</div>
-
-## 💰 Investment Overview
-
-### Premium Package
-
-<table>
-  <tr>
-    <th colspan="4" align="center">📄 Pages & Sections</th>
-  </tr>
-  <tr>
-    <th>Component</th>
-    <th>Description</th>
-    <th>Hours</th>
-    <th>Investment</th>
-  </tr>
-  <tr>
-    <td><b>Homepage Suite</b></td>
-    <td>Complete homepage with all sections</td>
-    <td>33h</td>
-    <td>5,760,000₫</td>
-  </tr>
-  <tr>
-    <td><b>About Page</b></td>
-    <td>Company profile, team, vision</td>
-    <td>8h</td>
-    <td>1,360,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Services Pages (4)</b></td>
-    <td>Detailed technology service pages</td>
-    <td>12h</td>
-    <td>2,040,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Contact Page</b></td>
-    <td>Interactive contact form and map</td>
-    <td>5h</td>
-    <td>850,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Header & Footer</b></td>
-    <td>Navigation and site-wide elements</td>
-    <td>4h</td>
-    <td>680,000₫</td>
-  </tr>
-  <tr>
-    <th colspan="2">Subtotal</th>
-    <th>62h</th>
-    <th>10,690,000₫</th>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th colspan="4" align="center">⚙️ Technical Components</th>
-  </tr>
-  <tr>
-    <th>Component</th>
-    <th>Description</th>
-    <th>Hours</th>
-    <th>Investment</th>
-  </tr>
-  <tr>
-    <td><b>3D Integration</b></td>
-    <td>Three.js setup, model optimization</td>
-    <td>8h</td>
-    <td>1,600,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Performance</b></td>
-    <td>Optimization, lazy loading</td>
-    <td>4h</td>
-    <td>680,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Responsive Design</b></td>
-    <td>Mobile testing, adjustments</td>
-    <td>4h</td>
-    <td>680,000₫</td>
-  </tr>
-  <tr>
-    <td><b>Deployment</b></td>
-    <td>Vercel setup, domain config</td>
-    <td>2h</td>
-    <td>300,000₫</td>
-  </tr>
-  <tr>
-    <th colspan="2">Subtotal</th>
-    <th>18h</th>
-    <th>3,260,000₫</th>
-  </tr>
-</table>
-
-### 🎁 Frontend-Only Special Offer
-
-<div align="center">
-  <h3>Total Regular Investment: 13,950,000₫</h3>
-  <h2>🔥 Special Package Price: 9,000,000₫ 🔥</h2>
-  <p><i>Limited time offer for frontend-only implementation</i></p>
-</div>
-
-### ✅ What's Included
-
--   All pages and sections detailed above
--   3D model integration and optimization
--   Responsive design for all devices
--   Deployment to Vercel
--   1 month of free support and bug fixes
-
-### 🎉 Bonus Features (Free)
-
--   SEO optimization
--   Social media preview cards
--   Loading animations
--   Basic analytics setup
-
-## 📅 Project Timeline
-
-```mermaid
-gantt
-    title T2V Showcase Project Timeline
-    dateFormat  YYYY-MM-DD
-    section Planning
-    Project Setup           :a1, 2025-06-05, 2d
-    Design Approval         :a2, after a1, 2d
-    section Development
-    Homepage                :a3, after a2, 5d
-    About Page              :a4, after a3, 3d
-    Services Pages          :a5, after a4, 4d
-    Contact Page            :a6, after a5, 2d
-    section Finalization
-    Testing & Refinement    :a7, after a6, 4d
-    Deployment              :a8, after a7, 2d
-    Client Training         :a9, after a8, 1d
+# Start development server
+npm run dev
 ```
 
--   **Development**: 2-3 weeks
--   **Testing & Refinement**: 3-5 days
--   **Deployment**: 1-2 days
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-## 💳 Payment Terms
+## 🎯 Project Structure
 
--   **Initial Payment**: 40% (3,600,000₫)
--   **Progress Payment**: 40% upon completion of Homepage and About page
--   **Final Payment**: 20% upon project completion and deployment
+```
+showcase/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   ├── components/
+│   │   ├── home/              # Homepage components
+│   │   │   ├── CharacterShowcase.tsx  # 3D character section
+│   │   │   ├── HeroSection.tsx
+│   │   │   └── ...
+│   │   └── ui/                # Reusable UI components
+│   └── assets/                # Static assets
+├── public/
+│   ├── models/                # 3D model files (.glb)
+│   ├── images/                # Image assets
+│   └── icons/                 # SVG icons
+└── docs/                      # Documentation
+    └── 3D_CHARACTER_GUIDE.md  # 3D implementation guide
+```
 
-## 📞 Contact
+## 🎮 3D Character Showcase
 
-For inquiries about this project, please contact:
+The CharacterShowcase component features:
 
-<table>
-  <tr>
-    <td><b>Email:</b></td>
-    <td>support@t2v.com</td>
-  </tr>
-  <tr>
-    <td><b>Phone:</b></td>
-    <td>+84 xxx xxx xxx</td>
-  </tr>
-  <tr>
-    <td><b>Website:</b></td>
-    <td>www.t2v.com</td>
-  </tr>
-</table>
+-   **Interactive 3D Scene**: Built with React Three Fiber
+-   **Three Characters**: Gaming Hero, AR/VR Champion, IoT Guardian
+-   **Dynamic Animations**: Floating, rotating, and pulsing effects
+-   **Lighting System**: Ambient, directional, and colored point lights
+-   **Particle Effects**: Floating particle background
+-   **Ground Plane**: Subtle reflective surface
 
-<div align="center">
+### Customization
+
+To replace placeholder characters with actual 3D models, see [3D Character Guide](./docs/3D_CHARACTER_GUIDE.md).
+
+## 🌟 Key Components
+
+### CharacterShowcase.tsx
+
+-   3D character display with Three.js
+-   Interactive camera controls
+-   Loading states and error handling
+-   Character information cards
+
+### HeroSection.tsx
+
+-   Hero banner with call-to-action
+-   Animated background effects
+-   Responsive typography
+
+### ServicesSection.tsx
+
+-   Service category showcases
+-   Interactive hover effects
+-   Feature highlights
+
+## 💰 Pricing & Packages
+
+### Frontend Development Package: 9,000,000 VND
+
+**Included Services:**
+
+-   ✅ Complete responsive website development
+-   ✅ 3D character showcase implementation
+-   ✅ Interactive UI/UX with animations
+-   ✅ Modern Tokyo-inspired design system
+-   ✅ Mobile optimization
+-   ✅ Performance optimization
+-   ✅ SEO setup and meta tags
+-   ✅ Deployment configuration
+-   ✅ Documentation and handover
+-   ✅ 1 month technical support
+
+**Timeline:** 2-3 weeks
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy to Vercel
+vercel
+
+# Production deployment
+vercel --prod
+```
+
+### Manual Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## 🔧 Development Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
+```
+
+## 📱 Browser Support
+
+-   Chrome (latest)
+-   Firefox (latest)
+-   Safari (latest)
+-   Edge (latest)
+
+**Note**: 3D features require WebGL support.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit changes (`git commit -am 'Add new feature'`)
+4. Push to branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
+
+## 📄 License
+
+This project is proprietary and belongs to T2V Technology Solutions.
+
+## 📞 Support
+
+For technical support or inquiries:
+
+-   Email: contact@t2vtechnology.com
+-   Phone: +84 (0) XXX XXX XXX
+-   Website: https://t2vtechnology.com
 
 ---
 
-© 2025 T2V Technology. All rights reserved.
-
-</div>
+**Built with ❤️ by T2V Technology Team**

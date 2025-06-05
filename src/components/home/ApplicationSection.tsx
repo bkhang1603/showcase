@@ -35,15 +35,14 @@ export default function ApplicationSection() {
 
         setParticles(generateParticles());
     }, []);
-
     return (
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-br from-slate-950 via-purple-950/30 to-slate-950 relative overflow-hidden border-t border-purple-500/10">
             {/* Background particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {particles.map((particle) => (
                     <motion.div
                         key={particle.id}
-                        className="absolute rounded-full bg-white/5"
+                        className="absolute rounded-full bg-gradient-to-r from-purple-500/20 to-indigo-500/20"
                         style={{
                             width: particle.width,
                             height: particle.height,
@@ -51,8 +50,8 @@ export default function ApplicationSection() {
                             top: particle.top,
                         }}
                         animate={{
-                            opacity: [0.1, 0.5, 0.1],
-                            scale: [1, 1.2, 1],
+                            opacity: [0.1, 0.6, 0.1],
+                            scale: [1, 1.5, 1],
                         }}
                         transition={{
                             duration: particle.duration,
@@ -63,12 +62,43 @@ export default function ApplicationSection() {
                     />
                 ))}
             </div>
-
+            {/* Purple glowing orbs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-600/20 rounded-full blur-xl"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                        x: [0, 20, 0],
+                        y: [0, -15, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute top-3/4 right-1/3 w-24 h-24 bg-indigo-600/20 rounded-full blur-xl"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.4, 0.7, 0.4],
+                        x: [0, -25, 0],
+                        y: [0, 20, 0],
+                    }}
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2,
+                    }}
+                />
+            </div>{" "}
             {/* Animated grid background */}
             <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-transparent to-indigo-500/5"></div>
             </div>
-
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col md:flex-row items-center gap-12">
                     <motion.div
@@ -85,22 +115,20 @@ export default function ApplicationSection() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="mb-6"
                         >
-                            <span className="text-indigo-400 font-medium uppercase tracking-wider text-sm">
+                            <span className="text-purple-400 font-medium uppercase tracking-wider text-sm bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
                                 Transformative Technology
                             </span>
                         </motion.div>
-
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-white via-purple-100 to-indigo-100 bg-clip-text text-transparent">
                             3D APPLICATION INTO LIFE
                         </h2>
-                        <p className="text-indigo-200 mb-6">
+                        <p className="text-slate-300 mb-6 leading-relaxed">
                             Our products are specifically designed to address
                             the unique needs of each of our clients. We offer
                             the latest in gaming, AR, VR, simulation, and IoT
                             technology, providing a comprehensive platform that
                             can be tailored to suit any business.
                         </p>
-
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                             {[
                                 "Custom AR/VR Solutions",
@@ -119,7 +147,8 @@ export default function ApplicationSection() {
                                         delay: 0.3 + index * 0.1,
                                     }}
                                 >
-                                    <div className="mr-3 mt-1 text-indigo-400">
+                                    {" "}
+                                    <div className="mr-3 mt-1 text-purple-400">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             className="h-5 w-5"
@@ -133,18 +162,17 @@ export default function ApplicationSection() {
                                             />
                                         </svg>
                                     </div>
-                                    <p className="text-indigo-100">{feature}</p>
+                                    <p className="text-slate-200">{feature}</p>
                                 </motion.div>
                             ))}
-                        </div>
-
+                        </div>{" "}
                         <motion.div
                             whileHover={{ x: 5 }}
                             whileTap={{ scale: 0.95 }}
                         >
                             <Link
                                 href="/tech"
-                                className="inline-flex items-center text-indigo-300 hover:text-indigo-100 transition group"
+                                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 group shadow-lg hover:shadow-purple-500/25"
                             >
                                 Explore our technology
                                 <svg
@@ -171,12 +199,14 @@ export default function ApplicationSection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className="relative">
+                            {" "}
                             {/* Main image */}
                             <motion.div
-                                className="rounded-lg shadow-2xl overflow-hidden relative z-0"
+                                className="rounded-lg shadow-2xl overflow-hidden relative z-0 border border-purple-500/20"
                                 whileHover={{ scale: 1.03 }}
                                 transition={{ duration: 0.3 }}
                             >
+                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/10 to-indigo-600/10 z-10"></div>
                                 <Image
                                     src={images.threeDApplication}
                                     alt="3D Application Visualization"
@@ -185,10 +215,9 @@ export default function ApplicationSection() {
                                     className="w-full h-auto"
                                 />
                             </motion.div>
-
                             {/* Decorative image 1 */}
                             <motion.div
-                                className="absolute -bottom-10 -left-10 w-32 h-32 rounded-lg overflow-hidden border-4 border-gray-800 shadow-xl z-10"
+                                className="absolute -bottom-10 -left-10 w-32 h-32 rounded-lg overflow-hidden border-4 border-purple-500/30 shadow-xl z-10 shadow-purple-500/25"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -201,10 +230,9 @@ export default function ApplicationSection() {
                                     className="object-cover"
                                 />
                             </motion.div>
-
                             {/* Decorative image 2 */}
                             <motion.div
-                                className="absolute -top-8 -right-8 w-40 h-28 rounded-lg overflow-hidden border-4 border-gray-800 shadow-xl z-10"
+                                className="absolute -top-8 -right-8 w-40 h-28 rounded-lg overflow-hidden border-4 border-indigo-500/30 shadow-xl z-10 shadow-indigo-500/25"
                                 initial={{ opacity: 0, y: -20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -217,14 +245,12 @@ export default function ApplicationSection() {
                                     className="object-cover"
                                 />
                             </motion.div>
-
                             {/* Glow effect */}
-                            <div className="absolute inset-0 bg-indigo-600/20 rounded-lg blur-xl -z-10 opacity-50"></div>
-                        </div>
-
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 rounded-lg blur-xl -z-10 opacity-60"></div>
+                        </div>{" "}
                         {/* Floating elements */}
                         <motion.div
-                            className="absolute -top-8 -right-8 w-16 h-16 bg-indigo-600/20 rounded-full blur-xl"
+                            className="absolute -top-8 -right-8 w-16 h-16 bg-purple-600/30 rounded-full blur-xl"
                             animate={{
                                 scale: [1, 1.2, 1],
                                 opacity: [0.5, 0.8, 0.5],
@@ -236,7 +262,7 @@ export default function ApplicationSection() {
                             }}
                         />
                         <motion.div
-                            className="absolute -bottom-12 -left-12 w-24 h-24 bg-purple-600/20 rounded-full blur-xl"
+                            className="absolute -bottom-12 -left-12 w-24 h-24 bg-indigo-600/30 rounded-full blur-xl"
                             animate={{
                                 scale: [1, 1.3, 1],
                                 opacity: [0.5, 0.7, 0.5],

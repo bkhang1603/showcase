@@ -65,20 +65,20 @@ export default function ContactSection() {
         // Show success message
         alert("Thank you for your message! We'll get back to you soon.");
     };
-
     return (
-        <section className="py-24 bg-gray-900 relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-br from-slate-950 via-purple-950/30 to-slate-950 relative overflow-hidden border-t border-purple-500/10">
             {/* Background elements */}
             <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-indigo-500/5"></div>
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
             </div>
 
-            {/* Stars */}
+            {/* Stars with purple/indigo colors */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {stars.map((star) => (
                     <motion.div
                         key={star.id}
-                        className="absolute rounded-full bg-white"
+                        className="absolute rounded-full bg-gradient-to-r from-purple-400 to-indigo-400"
                         style={{
                             width: star.width,
                             height: star.height,
@@ -86,7 +86,7 @@ export default function ContactSection() {
                             top: star.top,
                         }}
                         animate={{
-                            opacity: [0.1, 0.8, 0.1],
+                            opacity: [0.2, 0.8, 0.2],
                             scale: [1, 1.2, 1],
                         }}
                         transition={{
@@ -99,6 +99,38 @@ export default function ContactSection() {
                 ))}
             </div>
 
+            {/* Purple glowing orbs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-600/20 rounded-full blur-3xl"
+                    animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                        x: [0, 30, 0],
+                        y: [0, -20, 0],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-indigo-600/20 rounded-full blur-3xl"
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.4, 0.7, 0.4],
+                        x: [0, -25, 0],
+                        y: [0, 25, 0],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2,
+                    }}
+                />
+            </div>
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     className="max-w-4xl mx-auto"
@@ -107,38 +139,38 @@ export default function ContactSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
+                    {" "}
                     <div className="text-center mb-12">
-                        <span className="text-indigo-400 font-medium uppercase tracking-wider text-sm block mb-3">
+                        <span className="text-purple-400 font-medium uppercase tracking-wider text-sm bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-3">
                             Get in Touch
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-purple-100 to-indigo-100 bg-clip-text text-transparent">
                             Contact Us
                         </h2>
-                        <p className="text-indigo-300 max-w-2xl mx-auto">
+                        <p className="text-slate-300 max-w-2xl mx-auto leading-relaxed">
                             Ready to transform your ideas into reality? Our team
                             is here to help you with any questions or inquiries.
                         </p>
-                    </div>
-
-                    <div className="bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-gray-700">
+                    </div>{" "}
+                    <div className="bg-slate-900/50 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-purple-500/20">
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <motion.div
-                                className="bg-gradient-to-br from-indigo-800 to-indigo-900 p-8 text-white relative overflow-hidden"
+                                className="bg-gradient-to-br from-slate-900 via-purple-950/30 to-slate-900 p-8 text-white relative overflow-hidden"
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
                                 {/* Decorative elements */}
-                                <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-600/20 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2"></div>
-                                <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-600/20 rounded-full blur-xl transform -translate-x-1/2 translate-y-1/2"></div>
+                                <div className="absolute top-0 right-0 w-40 h-40 bg-purple-600/20 rounded-full blur-xl transform translate-x-1/2 -translate-y-1/2"></div>
+                                <div className="absolute bottom-0 left-0 w-40 h-40 bg-indigo-600/20 rounded-full blur-xl transform -translate-x-1/2 translate-y-1/2"></div>
 
                                 <div className="relative">
                                     <h2 className="text-2xl font-bold mb-6 flex items-center">
                                         <span className="mr-3">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-7 w-7 text-indigo-300"
+                                                className="h-7 w-7 text-purple-400"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -153,7 +185,7 @@ export default function ContactSection() {
                                         </span>
                                         Contact Us
                                     </h2>
-                                    <p className="mb-8 text-indigo-200">
+                                    <p className="mb-8 text-slate-300 leading-relaxed">
                                         Ready to bring your ideas to life? Get
                                         in touch with our team to discuss your
                                         project.
@@ -170,9 +202,10 @@ export default function ContactSection() {
                                                 delay: 0.3,
                                             }}
                                         >
+                                            {" "}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6 mr-3 text-indigo-300"
+                                                className="h-6 w-6 mr-3 text-purple-400"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -191,10 +224,10 @@ export default function ContactSection() {
                                                 />
                                             </svg>
                                             <div>
-                                                <h3 className="font-medium text-indigo-300">
+                                                <h3 className="font-medium text-purple-300">
                                                     Address
                                                 </h3>
-                                                <p className="text-indigo-100">
+                                                <p className="text-slate-200">
                                                     123 Innovation Street, Tech
                                                     City
                                                 </p>
@@ -211,9 +244,10 @@ export default function ContactSection() {
                                                 delay: 0.4,
                                             }}
                                         >
+                                            {" "}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6 mr-3 text-indigo-300"
+                                                className="h-6 w-6 mr-3 text-purple-400"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -226,10 +260,10 @@ export default function ContactSection() {
                                                 />
                                             </svg>
                                             <div>
-                                                <h3 className="font-medium text-indigo-300">
+                                                <h3 className="font-medium text-purple-300">
                                                     Email
                                                 </h3>
-                                                <p className="text-indigo-100">
+                                                <p className="text-slate-200">
                                                     info@t2vcompany.com
                                                 </p>
                                             </div>
@@ -245,9 +279,10 @@ export default function ContactSection() {
                                                 delay: 0.5,
                                             }}
                                         >
+                                            {" "}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6 mr-3 text-indigo-300"
+                                                className="h-6 w-6 mr-3 text-purple-400"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -260,10 +295,10 @@ export default function ContactSection() {
                                                 />
                                             </svg>
                                             <div>
-                                                <h3 className="font-medium text-indigo-300">
+                                                <h3 className="font-medium text-purple-300">
                                                     Phone
                                                 </h3>
-                                                <p className="text-indigo-100">
+                                                <p className="text-slate-200">
                                                     +1 (123) 456-7890
                                                 </p>
                                             </div>
@@ -286,10 +321,10 @@ export default function ContactSection() {
                                             alt="Office Location"
                                             fill
                                             className="object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-indigo-900/30"></div>
+                                        />{" "}
+                                        <div className="absolute inset-0 bg-purple-900/40"></div>
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="bg-indigo-600 rounded-full p-2 shadow-lg">
+                                            <div className="bg-purple-600 rounded-full p-2 shadow-lg shadow-purple-500/25">
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     className="h-6 w-6 text-white"
@@ -315,7 +350,6 @@ export default function ContactSection() {
                                     </motion.div>
                                 </div>
                             </motion.div>
-
                             <motion.div
                                 className="p-8 relative"
                                 initial={{ opacity: 0, x: 50 }}
@@ -323,10 +357,10 @@ export default function ContactSection() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
+                                {" "}
                                 {/* Decorative elements */}
-                                <div className="absolute top-0 right-0 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl"></div>
-                                <div className="absolute bottom-0 left-0 w-16 h-16 bg-purple-500/10 rounded-full blur-xl"></div>
-
+                                <div className="absolute top-0 right-0 w-16 h-16 bg-purple-500/20 rounded-full blur-xl"></div>
+                                <div className="absolute bottom-0 left-0 w-16 h-16 bg-indigo-500/20 rounded-full blur-xl"></div>
                                 <form
                                     className="space-y-4 relative"
                                     onSubmit={handleSubmit}
@@ -334,7 +368,7 @@ export default function ContactSection() {
                                     <div>
                                         <label
                                             htmlFor="name"
-                                            className="block text-sm font-medium text-gray-300 mb-1"
+                                            className="block text-sm font-medium text-slate-300 mb-1"
                                         >
                                             Name
                                         </label>
@@ -345,7 +379,7 @@ export default function ContactSection() {
                                             name="name"
                                             value={formState.name}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-2 bg-gray-700/70 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400"
+                                            className="w-full px-4 py-2 bg-slate-800/70 border border-purple-500/30 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-slate-400"
                                             placeholder="Your name"
                                             required
                                         />
@@ -354,7 +388,7 @@ export default function ContactSection() {
                                     <div>
                                         <label
                                             htmlFor="email"
-                                            className="block text-sm font-medium text-gray-300 mb-1"
+                                            className="block text-sm font-medium text-slate-300 mb-1"
                                         >
                                             Email
                                         </label>
@@ -365,7 +399,7 @@ export default function ContactSection() {
                                             name="email"
                                             value={formState.email}
                                             onChange={handleChange}
-                                            className="w-full px-4 py-2 bg-gray-700/70 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400"
+                                            className="w-full px-4 py-2 bg-slate-800/70 border border-purple-500/30 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-slate-400"
                                             placeholder="your.email@example.com"
                                             required
                                         />
@@ -374,7 +408,7 @@ export default function ContactSection() {
                                     <div>
                                         <label
                                             htmlFor="message"
-                                            className="block text-sm font-medium text-gray-300 mb-1"
+                                            className="block text-sm font-medium text-slate-300 mb-1"
                                         >
                                             Message
                                         </label>
@@ -385,7 +419,7 @@ export default function ContactSection() {
                                             value={formState.message}
                                             onChange={handleChange}
                                             rows={4}
-                                            className="w-full px-4 py-2 bg-gray-700/70 border border-gray-600 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-400"
+                                            className="w-full px-4 py-2 bg-slate-800/70 border border-purple-500/30 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-slate-400"
                                             placeholder="How can we help you?"
                                             required
                                         />
@@ -396,7 +430,7 @@ export default function ContactSection() {
                                         whileTap={{ scale: 0.98 }}
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium py-2 px-4 rounded-md transition ${
+                                        className={`w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-medium py-2 px-4 rounded-md transition shadow-lg hover:shadow-purple-500/25 ${
                                             isSubmitting
                                                 ? "opacity-70 cursor-not-allowed"
                                                 : ""
@@ -408,8 +442,8 @@ export default function ContactSection() {
                                     </motion.button>
 
                                     {/* Social links */}
-                                    <div className="pt-6 mt-6 border-t border-gray-700">
-                                        <p className="text-gray-400 mb-4">
+                                    <div className="pt-6 mt-6 border-t border-purple-500/20">
+                                        <p className="text-slate-400 mb-4">
                                             Connect with us on social media
                                         </p>
                                         <div className="flex space-x-4">
@@ -422,7 +456,7 @@ export default function ContactSection() {
                                                 <motion.a
                                                     key={social}
                                                     href="#"
-                                                    className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 hover:bg-indigo-600 hover:text-white transition-colors"
+                                                    className="w-10 h-10 rounded-full bg-slate-800/70 border border-purple-500/30 flex items-center justify-center text-slate-300 hover:bg-purple-600 hover:text-white hover:border-purple-500 transition-all duration-300"
                                                     whileHover={{ scale: 1.1 }}
                                                     whileTap={{ scale: 0.9 }}
                                                     initial={{ opacity: 0 }}

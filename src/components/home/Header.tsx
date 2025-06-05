@@ -22,7 +22,7 @@ export default function Header() {
         <motion.header
             className={`fixed w-full backdrop-blur-md z-50 transition-all duration-700 ${
                 scrolled
-                    ? "bg-gray-900/80 shadow-md shadow-indigo-900/10"
+                    ? "bg-slate-900/80 shadow-md shadow-cyan-900/10"
                     : "bg-transparent"
             }`}
             initial={{ y: -100, opacity: 0 }}

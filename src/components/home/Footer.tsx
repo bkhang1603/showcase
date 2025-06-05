@@ -45,7 +45,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className="bg-gray-950 text-white py-16 relative overflow-hidden">
+        <footer className="bg-slate-950 text-white py-16 relative overflow-hidden">
             {/* Stars background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {stars.map((star) => (
@@ -74,7 +74,7 @@ export default function Footer() {
 
             {/* Galaxy effect */}
             <motion.div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-indigo-900/5 blur-3xl"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-cyan-900/5 blur-3xl"
                 animate={{
                     scale: [1, 1.2, 1],
                     rotate: [0, 360],
@@ -254,7 +254,7 @@ export default function Footer() {
                                 whileFocus={{ scale: 1.02 }}
                                 type="email"
                                 placeholder="Your email"
-                                className="px-4 py-2 w-full rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-800 text-white border-gray-700 border"
+                                className="px-4 py-2 w-full rounded-l-md focus:outline-none focus:ring-2 focus:ring-cyan-500 bg-slate-800 text-white border-slate-700 border"
                             />
                             <motion.button
                                 whileHover={{ scale: 1.05 }}

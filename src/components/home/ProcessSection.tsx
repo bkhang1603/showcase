@@ -3,6 +3,7 @@
 import icons from "@/assets/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import StarsBackground from "@/components/ui/StarsBackground";
 
 const processes = [
     {
@@ -51,40 +52,8 @@ const processes = [
 
 export default function ProcessSection() {
     return (
-        <section className="py-24 bg-gray-900 relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center"></div>
-            </div>
-
-            {/* Glowing orbs */}
-            <motion.div
-                className="absolute top-20 left-20 w-40 h-40 rounded-full bg-indigo-600/10 blur-3xl"
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            />
-
-            <motion.div
-                className="absolute bottom-20 right-20 w-60 h-60 rounded-full bg-purple-600/10 blur-3xl"
-                animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.1, 0.15, 0.1],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                }}
-            />
-
+        <section className="py-24 bg-slate-950 relative overflow-hidden border-t border-slate-700/20">
+            <StarsBackground />
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     className="text-center mb-16"
@@ -93,19 +62,18 @@ export default function ProcessSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="text-indigo-400 font-medium uppercase tracking-wider text-sm block mb-3">
+                    <span className="text-purple-400 font-medium uppercase tracking-wider text-sm bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-3">
                         Our Methodology
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-white via-purple-100 to-indigo-100 bg-clip-text text-transparent">
                         Our Working Process
                     </h2>
-                    <p className="text-indigo-300 max-w-2xl mx-auto">
+                    <p className="text-slate-300 max-w-2xl mx-auto leading-relaxed">
                         Our product development methodology refined over more
                         than 5 years of experience
                     </p>
-                    <div className="w-20 h-1 bg-indigo-600 mx-auto mt-6"></div>
+                    <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto mt-6 rounded-full"></div>
                 </motion.div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {processes.map((process, index) => (
                         <motion.div
@@ -116,25 +84,29 @@ export default function ProcessSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
+                            {" "}
                             <motion.div
-                                className="bg-gray-800 border border-gray-700 rounded-xl h-full relative overflow-hidden group"
-                                whileHover={{ y: -5 }}
+                                className="bg-slate-900/50 border border-purple-500/20 rounded-xl h-full relative overflow-hidden group backdrop-blur-sm"
+                                whileHover={{
+                                    y: -5,
+                                    borderColor: "rgba(168, 85, 247, 0.4)",
+                                }}
                                 transition={{ duration: 0.3 }}
                             >
                                 {/* Image */}
                                 <div className="relative h-40 overflow-hidden">
-                                    <div className="flex items-center justify-center w-full h-full">
+                                    <div className="flex items-center justify-center w-full h-full bg-gradient-to-br from-purple-900/20 to-indigo-900/20">
                                         <Image
                                             src={process.image}
                                             alt={process.title}
                                             width={120}
                                             height={120}
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110 filter invert"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-110 filter brightness-0 invert group-hover:drop-shadow-lg"
                                         />
                                     </div>
-                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-80"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                                     <motion.div
-                                        className="absolute bottom-4 left-6 text-5xl font-bold text-indigo-600/50 group-hover:text-indigo-500/60 transition-colors"
+                                        className="absolute bottom-4 left-6 text-5xl font-bold text-purple-600/60 group-hover:text-purple-500/80 transition-colors"
                                         initial={{ scale: 0.5, opacity: 0 }}
                                         whileInView={{ scale: 1, opacity: 1 }}
                                         viewport={{ once: true }}
@@ -148,7 +120,7 @@ export default function ProcessSection() {
                                 </div>
 
                                 <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors">
+                                    <h3 className="text-xl font-bold mb-4 text-white group-hover:text-purple-300 transition-colors">
                                         {process.title}
                                     </h3>
 
@@ -172,7 +144,7 @@ export default function ProcessSection() {
                                                 }}
                                             >
                                                 <svg
-                                                    className="h-5 w-5 text-indigo-500 mr-2 mt-0.5 flex-shrink-0"
+                                                    className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20"
                                                     fill="currentColor"
@@ -183,7 +155,7 @@ export default function ProcessSection() {
                                                         clipRule="evenodd"
                                                     />
                                                 </svg>
-                                                <span className="text-gray-300 group-hover:text-gray-100 transition-colors">
+                                                <span className="text-slate-300 group-hover:text-slate-100 transition-colors">
                                                     {item}
                                                 </span>
                                             </motion.li>
@@ -192,13 +164,12 @@ export default function ProcessSection() {
                                 </div>
 
                                 {/* Hover effect */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/0 to-purple-600/0 group-hover:from-indigo-600/10 group-hover:to-purple-600/10 transition-all duration-300 pointer-events-none"></div>
-                            </motion.div>
-
+                                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/0 to-indigo-600/0 group-hover:from-purple-600/10 group-hover:to-indigo-600/10 transition-all duration-300 pointer-events-none rounded-xl"></div>
+                            </motion.div>{" "}
                             {index < 3 && (
                                 <div className="hidden lg:block absolute top-1/2 -right-7 transform -translate-y-1/2 z-10">
                                     <motion.svg
-                                        className="h-8 w-8 text-indigo-500"
+                                        className="h-8 w-8 text-purple-500"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
@@ -219,8 +190,7 @@ export default function ProcessSection() {
                             )}
                         </motion.div>
                     ))}
-                </div>
-
+                </div>{" "}
                 {/* Process Flow Visualization */}
                 <motion.div
                     className="mt-20 relative"
@@ -229,27 +199,33 @@ export default function ProcessSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    <div className="relative h-[200px] md:h-[300px] w-full rounded-xl overflow-hidden">
+                    <div className="relative h-[200px] md:h-[300px] w-full rounded-xl overflow-hidden border border-purple-500/20">
                         <Image
                             src="/grid.svg"
                             alt="Our Process Flow"
                             fill
-                            className="object-cover"
+                            className="object-cover opacity-20"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-purple-950/60 to-slate-900/90"></div>
 
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center max-w-2xl px-4">
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-purple-100 to-indigo-100 bg-clip-text text-transparent mb-4">
                                     Complete End-to-End Solution
                                 </h3>
-                                <p className="text-indigo-200">
+                                <p className="text-slate-300 leading-relaxed">
                                     Our comprehensive development process
                                     ensures quality at every stage, from initial
                                     concept to final deployment and support.
                                 </p>
                             </div>
                         </div>
+
+                        {/* Decorative elements */}
+                        <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-purple-500/30"></div>
+                        <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-indigo-500/30"></div>
+                        <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-purple-500/30"></div>
+                        <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-indigo-500/30"></div>
                     </div>
                 </motion.div>
             </div>

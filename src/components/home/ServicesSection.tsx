@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import images from "@/assets/images";
 import icons from "@/assets/icons";
+import StarsBackground from "@/components/ui/StarsBackground";
 
 const services = [
     {
@@ -83,66 +84,9 @@ export default function ServicesSection() {
         hidden: { opacity: 0, y: 20 },
         show: { opacity: 1, y: 0 },
     };
-
     return (
-        <section className="py-20 bg-gray-900 relative overflow-hidden">
-            {/* Glowing orbs */}
-            <motion.div
-                className="absolute top-20 left-20 w-40 h-40 rounded-full bg-indigo-600/10 blur-3xl"
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.1, 0.2, 0.1],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
-            />
-
-            <motion.div
-                className="absolute bottom-20 right-20 w-60 h-60 rounded-full bg-purple-600/10 blur-3xl"
-                animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.1, 0.15, 0.1],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                }}
-            />
-
-            {/* Additional decorative elements */}
-            <motion.div
-                className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-indigo-500/5 blur-xl"
-                animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.05, 0.1, 0.05],
-                }}
-                transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 2,
-                }}
-            />
-
-            <motion.div
-                className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-purple-500/5 blur-xl"
-                animate={{
-                    scale: [1, 1.4, 1],
-                    opacity: [0.05, 0.1, 0.05],
-                }}
-                transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 3,
-                }}
-            />
-
+        <section className="py-24 bg-slate-950 relative overflow-hidden border-t border-slate-700/20">
+            <StarsBackground />
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <motion.div
                     className="text-center mb-16"
@@ -151,15 +95,18 @@ export default function ServicesSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                 >
+                    <span className="text-purple-400 font-medium uppercase tracking-wider text-sm block mb-3">
+                        Our Solutions
+                    </span>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                        Our Services
+                        Technology Services
                     </h2>
-                    <p className="text-indigo-300 max-w-2xl mx-auto mb-6">
+                    <p className="text-slate-300 max-w-2xl mx-auto mb-6">
                         We offer cutting-edge solutions in gaming, AR, VR,
                         simulation, and IoT technologies to transform your ideas
                         into reality.
                     </p>
-                    <div className="w-20 h-1 bg-indigo-600 mx-auto"></div>
+                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto"></div>
                 </motion.div>
 
                 <motion.div
@@ -178,14 +125,14 @@ export default function ServicesSection() {
                         >
                             <Link href={service.href} className="block">
                                 {" "}
-                                <div className="bg-gray-800 rounded-xl overflow-hidden h-full shadow-lg hover:shadow-indigo-500/20 border border-gray-700 hover:border-indigo-500 transition-all duration-700">
-                                    <div className="relative h-48 w-full overflow-hidden group-hover:after:opacity-10 after:absolute after:inset-0 after:bg-indigo-500/0 after:opacity-0 after:transition-opacity after:duration-700 after:ease-out">
+                                <div className="bg-slate-900/80 backdrop-blur-sm rounded-xl overflow-hidden h-full shadow-lg hover:shadow-purple-500/20 border border-slate-700 hover:border-purple-500/50 transition-all duration-700 group-hover:bg-slate-800/80">
+                                    <div className="relative h-48 w-full overflow-hidden group-hover:after:opacity-10 after:absolute after:inset-0 after:bg-purple-500/0 after:opacity-0 after:transition-opacity after:duration-700 after:ease-out">
                                         {/* Service image with fallback */}{" "}
                                         <Image
                                             src={service.image}
                                             alt={service.title}
                                             fill
-                                            className="object-cover transition-all duration-700 ease-out group-hover:filter group-hover:brightness-105"
+                                            className="object-cover transition-all duration-700 ease-out group-hover:filter group-hover:brightness-110 group-hover:scale-105"
                                             onError={(e) => {
                                                 // Fallback if image fails to load
                                                 const target =
@@ -204,23 +151,23 @@ export default function ServicesSection() {
                                                 );
                                             }}
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60 group-hover:opacity-55 transition-all duration-700 ease-out"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-60 group-hover:opacity-50 transition-all duration-700 ease-out"></div>
                                     </div>
 
-                                    <div className="p-5">
-                                        <h3 className="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                                    <div className="p-6">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
                                             {service.title}
                                         </h3>
-                                        <p className="mt-2 text-gray-400 text-sm line-clamp-2 group-hover:text-gray-300 transition-colors duration-300">
+                                        <p className="mt-3 text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
                                             {service.description}
                                         </p>
-                                        <div className="mt-3 flex items-center">
-                                            <span className="text-indigo-400 text-sm group-hover:text-indigo-300 transition-colors duration-300">
-                                                Explore
+                                        <div className="mt-4 flex items-center">
+                                            <span className="text-purple-400 text-sm group-hover:text-purple-300 transition-colors duration-300 font-medium">
+                                                Explore Service
                                             </span>{" "}
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4 ml-1 text-indigo-400 group-hover:text-indigo-300 transition-colors duration-700 ease-out"
+                                                className="h-4 w-4 ml-2 text-purple-400 group-hover:text-purple-300 group-hover:translate-x-1 transition-all duration-300 ease-out"
                                                 viewBox="0 0 20 20"
                                                 fill="currentColor"
                                             >

@@ -119,4 +119,35 @@
     body {
         @apply bg-background text-foreground;
     }
+
+    /* Enhanced scroll behavior for alternating sections */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Section transition effects */
+    section {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Enhance the visual separation between purple and black sections */
+    section:nth-child(even) {
+        border-top: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    section:nth-child(odd) {
+        border-top: 1px solid rgba(71, 85, 105, 0.2);
+    }
+
+    /* Subtle glow effect for purple sections */
+    section[class*="purple-950"] {
+        box-shadow: 0 0 100px rgba(139, 92, 246, 0.05);
+    }
+
+    /* Performance optimization for animations */
+    * {
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+    }
 }
